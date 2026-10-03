@@ -38,3 +38,6 @@ html{scroll-behavior:smooth}
 .card:hover span:last-child{color:var(--brand)}
 .app{scroll-margin-top:12px}
 .hero{text-align:center}
+.links{align-items:center}
+.badge{display:inline-block;line-height:0}
+.badge img{height:44px;width:auto}

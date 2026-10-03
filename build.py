@@ -25,7 +25,27 @@ def load_apps():
         shots = a.get("shots") or [f"shots/{x.name}" for x in sorted((f.parent / "shots").glob("*.*"))]
         a["shots"] = [rel(x) for x in shots]
         apps.append(a)
-    return sorted(apps, key=lambda a: a.get("order", 99))
+    # Ordre d'affichage : apps/order.json (liste de slugs) ; les dossiers non listés vont à la fin.
+    order = json.loads((ROOT / "apps" / "order.json").read_text(encoding="utf-8"))
+    rank = lambda a: order.index(a["slug"]) if a["slug"] in order else len(order)
+    return sorted(apps, key=lambda a: (rank(a), a["slug"]))
+
+
+BADGE_LOCALE = {"fr": "fr-fr", "en": "en-us", "es": "es-es"}
+
+
+def badges(a, lang, depth, t):
+    """Badges officiels Apple (assets/badges/) : App Store pour iOS/iPadOS, Mac App Store pour macOS."""
+    if not a.get("store"):
+        return f'<span class="btn disabled">{t["soon"]}</span>'
+    kinds = []
+    if {"iOS", "iPadOS"} & set(a.get("platforms", [])):
+        kinds.append(("download-on-the-app-store", "App Store"))
+    if "macOS" in a.get("platforms", []):
+        kinds.append(("download-on-the-mac-app-store", "Mac App Store"))
+    return "".join(
+        f'<a class="badge" href="{a["store"]}" rel="noopener"><img src="{depth}assets/badges/{k}-{BADGE_LOCALE[lang]}.svg" '
+        f'alt="{t["store"]} {label}" height="44"></a>' for k, label in kinds)
 
 
 def url(path, depth):
@@ -37,7 +57,7 @@ T = {
     "fr": {
         "title": "AirXygène – Applications iPhone & Mac",
         "tagline": "Des applications simples, faites avec soin par Stef Millet.",
-        "store": "Voir sur l’App Store", "soon": "Bientôt disponible",
+        "store": "Télécharger sur", "soon": "Bientôt disponible",
         "feedback": "Support &amp; avis", "privacy": "Politique de confidentialité",
         "subject": "Support / avis : {app}",
         "p_title": "Politique de confidentialité",
@@ -49,7 +69,7 @@ T = {
     "en": {
         "title": "AirXygène – iPhone & Mac apps",
         "tagline": "Simple apps, carefully made by Stef Millet.",
-        "store": "View on the App Store", "soon": "Coming soon",
+        "store": "Download on the", "soon": "Coming soon",
         "feedback": "Support &amp; feedback", "privacy": "Privacy policy",
         "subject": "Support / feedback: {app}",
         "p_title": "Privacy policy",
@@ -61,7 +81,7 @@ T = {
     "es": {
         "title": "AirXygène – Apps para iPhone y Mac",
         "tagline": "Apps sencillas, hechas con cuidado por Stef Millet.",
-        "store": "Ver en el App Store", "soon": "Próximamente",
+        "store": "Descargar en", "soon": "Próximamente",
         "feedback": "Soporte y comentarios", "privacy": "Política de privacidad",
         "subject": "Soporte / comentarios: {app}",
         "p_title": "Política de privacidad",
@@ -127,8 +147,7 @@ def page(lang, kind):
     parts.append(f'<nav class="carousel" aria-label="Apps">{cards}</nav>')
     for a in apps:
         subj = escape(t["subject"].format(app=a["name"]), quote=True)
-        store = (f'<a class="btn primary" href="{a["store"]}" rel="noopener">{t["store"]}</a>'
-                 if a.get("store") else f'<span class="btn disabled">{t["soon"]}</span>')
+        store = badges(a, lang, depth, t)
         shots = "".join(
             f'<img src="{url(s, depth)}" alt="{escape(a["name"])}" loading="lazy" onerror="this.remove()">'
             for s in a["shots"])

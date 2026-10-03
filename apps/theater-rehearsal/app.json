@@ -1,6 +1,5 @@
 {
   "name": "Theater Rehearsal",
-  "order": 5,
   "visible": true,
   "platforms": [
     "iOS",

@@ -1,6 +1,5 @@
 {
   "name": "4-Way Coach",
-  "order": 1,
   "visible": true,
   "platforms": [
     "iOS"

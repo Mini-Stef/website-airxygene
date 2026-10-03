@@ -1,6 +1,5 @@
 {
   "name": "Pirats Treasure Race",
-  "order": 6,
   "visible": false,
   "platforms": [
     "macOS"

@@ -1,6 +1,5 @@
 {
   "name": "My Best Spots",
-  "order": 3,
   "visible": true,
   "platforms": [
     "macOS",

@@ -1,6 +1,5 @@
 {
   "name": "CoreData Model Editor",
-  "order": 2,
   "visible": true,
   "platforms": [
     "macOS"

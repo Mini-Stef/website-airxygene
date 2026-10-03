@@ -1,6 +1,5 @@
 {
   "name": "Theatre",
-  "order": 4,
   "visible": true,
   "platforms": [
     "macOS"

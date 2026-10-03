@@ -6,12 +6,13 @@ Site statique FR (racine) / EN (`/en/`) / ES (`/es/`).
 
 ```
 apps/<slug>/
-  app.json     nom, order, visible, platforms, store (URL ou null), description {fr,en,es}
+  app.json     nom, visible, platforms, store (URL ou null), description {fr,en,es}
   icon.png     optionnel (ou "icon": URL dans app.json)
   shots/       optionnel : captures locales (ou "shots": [URL…] dans app.json)
 ```
 
-- Ajouter une app : créer un dossier avec son `app.json` (copier un existant).
+- Ordre d'affichage : `apps/order.json` (liste de slugs, dans l'ordre voulu ; les apps non listées passent en dernier).
+- Ajouter une app : créer un dossier avec son `app.json` (copier un existant) et l'ajouter à `order.json`.
 - Retirer une app : supprimer le dossier, ou mettre `"visible": false`.
 - Puis `python3 build.py` régénère les pages.
 
