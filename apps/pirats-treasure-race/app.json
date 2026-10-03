@@ -1,15 +1,15 @@
 {
   "name": "Pirats Treasure Race",
-  "visible": false,
+  "visible": true,
   "platforms": [
     "macOS"
   ],
   "store": null,
-  "icon": null,
+  "icon": "icon/AppIcon-iOS-Default-1024@1x.png",
   "shots": [],
   "description": {
-    "fr": "À compléter",
-    "en": "TODO",
-    "es": "TODO"
+    "fr": "Six morceaux de carte déchirée. Trois capitaines rivaux. Une idole en or. Commercez, combattez et creusez sur une mer vivante, et atteignez le trésor avant les autres.",
+    "en": "Six torn pieces of a map. Three rival captains. One golden idol. Trade, fight and dig your way across a living sea, and reach the treasure before anyone else does.",
+    "es": "Seis trozos de un mapa roto. Tres capitanes rivales. Un ídolo de oro. Comercia, combate y cava por un mar vivo, y llega al tesoro antes que nadie."
   }
 }
