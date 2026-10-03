@@ -1,0 +1,20 @@
+{
+  "name": "Theatre",
+  "order": 4,
+  "visible": true,
+  "platforms": [
+    "macOS"
+  ],
+  "store": "https://apps.apple.com/app/id6794834192",
+  "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/65/65/e56565db-0866-d901-4f91-da7b34933fd6/Theatre-Icon-0-0-85-220-0-6-0-2x.png/512x512bb.png",
+  "shots": [
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b4/ab/aa/b4abaa68-386f-00ba-a25b-0fe829a87831/Capture_d_U2019e_U0301cran_2026-07-26_a_U0300_16.33.47.png/900x900bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/78/bb/d1/78bbd108-26bd-2855-355e-58061b7f23aa/Capture_d_U2019e_U0301cran_2026-07-26_a_U0300_16.34.09.png/900x900bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/53/f1/30/53f1304a-35e5-0d86-af7a-01d3f043eaa2/Capture_d_U2019e_U0301cran_2026-07-26_a_U0300_16.34.29.png/900x900bb.jpg"
+  ],
+  "description": {
+    "fr": "Théâtre est un studio d'écriture pensé pour les auteurs de théâtre. Structurez votre pièce comme elle se joue sur scène — actes, scènes, personnages, répliques et didascalies — et transformez-la en un script clair et imprimable quand vous le souhaitez.",
+    "en": "Theatre is a focused writing studio for playwrights. Structure your play the way it reads on stage — acts, scenes, characters, dialogue and stage directions — and turn it into a clean, printable script whenever you like.",
+    "es": "Theatre es un estudio de escritura pensado para autores de teatro. Estructura tu obra tal como se ve en el escenario — actos, escenas, personajes, diálogos y acotaciones — y conviértela en un guion claro e imprimible cuando quieras."
+  }
+}

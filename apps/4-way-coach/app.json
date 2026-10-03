@@ -1,0 +1,23 @@
+{
+  "name": "4-Way Coach",
+  "order": 1,
+  "visible": true,
+  "platforms": [
+    "iOS"
+  ],
+  "store": "https://apps.apple.com/app/id477045460",
+  "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/56/77/2b567728-e4b2-7b56-f85d-84b84dc14e26/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+  "shots": [
+    "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/d6/36/8c/d6368c51-1c82-6a9c-502f-80c496ffbad0/pr_source.png/900x900bb.png",
+    "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/56/81/ea/5681ea0d-ed43-291d-9855-a64d8786c928/pr_source.png/900x900bb.png",
+    "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/72/d2/e7/72d2e7e5-a79f-d576-6baf-b2a86856055a/pr_source.png/900x900bb.png",
+    "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/15/2b/18/152b18f5-df05-6efd-ae0b-521beb219d21/pr_source.png/900x900bb.png",
+    "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/00/81/de/0081de1e-6b4e-b100-ab7d-f70834a571a5/pr_source.png/900x900bb.png",
+    "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/0a/cf/d1/0acfd163-02e2-21dc-073a-77f7a129f70c/pr_source.png/900x900bb.png"
+  ],
+  "description": {
+    "fr": "Tout sur le Vol Relatif à 4, en animations ! Générez des vidéos des formations de votre programme, avec chronomètre intégré et personnalisation (prénoms, couleurs des combinaisons). Désormais aussi pour le VR3.",
+    "en": "Everything about 4-way relative work, shown with animations! Generate videos of the formations in your jump program, with a built-in stopwatch and customization (teammate names, suit colors). Now with 3-way too.",
+    "es": "Todo sobre el Vuelo Relativo a 4, ¡en animaciones! Genera vídeos de las formaciones de tu programa, con cronómetro integrado y personalización (nombres, colores de los monos). Ahora también para VR3."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Theater Rehearsal",
+  "order": 5,
+  "visible": true,
+  "platforms": [
+    "iOS",
+    "iPadOS"
+  ],
+  "store": null,
+  "icon": null,
+  "shots": [],
+  "description": {
+    "fr": "L’app compagne de Theatre pour répéter : elle lit les autres personnages à voix haute, chacun avec sa voix, écoute le comédien dire ses répliques et montre les écarts avec le texte.",
+    "en": "Theatre’s companion app for rehearsing: it reads the other characters aloud, each with their own voice, listens while you say your lines, and shows where you differ from the text.",
+    "es": "La app compañera de Theatre para ensayar: lee en voz alta a los demás personajes, cada uno con su voz, te escucha decir tus diálogos y muestra las diferencias con el texto."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "CoreData Model Editor",
+  "order": 2,
+  "visible": true,
+  "platforms": [
+    "macOS"
+  ],
+  "store": "https://apps.apple.com/app/id6449733666",
+  "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/79/3f/09/793f0932-0c09-6242-4572-e83a2af21f1a/database-edit-0-0-85-220-0-6-0-2x.png/512x512bb.png",
+  "shots": [
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/1e/11/c1/1e11c19b-322a-1dfe-d86b-7a2a17dd64c0/9ba0006f-da00-423a-b57d-dea8e5a15849_CDMEditor-Capture1_-_comment.png/900x900bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/57/6b/f3/576bf3db-94bf-9c32-aa92-2789c464b750/16a1e7e2-cbb0-4c36-ae69-77ebca50714a_CMDEditor-Capture2_-_comment.png/900x900bb.jpg"
+  ],
+  "description": {
+    "fr": "CoreData Model Editor est une app macOS pour éditer graphiquement vos modèles CoreData (fichiers .xcdatamodeld).",
+    "en": "CoreData Model Editor is a macOS app that lets you graphically edit your CoreData model files (.xcdatamodeld).",
+    "es": "CoreData Model Editor es una app de macOS para editar gráficamente tus modelos de CoreData (archivos .xcdatamodeld)."
+  }
+}

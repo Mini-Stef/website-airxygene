@@ -1,0 +1,16 @@
+{
+  "name": "Pirats Treasure Race",
+  "order": 6,
+  "visible": false,
+  "platforms": [
+    "macOS"
+  ],
+  "store": null,
+  "icon": null,
+  "shots": [],
+  "description": {
+    "fr": "À compléter",
+    "en": "TODO",
+    "es": "TODO"
+  }
+}
