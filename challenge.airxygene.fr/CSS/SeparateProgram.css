@@ -1,0 +1,51 @@
+*
+{
+	text-align		: center ;
+	margin-left		: auto ;
+	margin-right	: auto ;
+}
+
+body
+{
+	background-color: white ;
+	font-family		: Trebuchet MS, Arial, Verdana, sans-serif ;
+}
+
+.page-breaker
+{
+	max-width		: 19cm ;
+	max-height		: 26cm ;
+	overflow		: hidden ;
+	page-break-after:always ;
+}
+
+.program-table
+{	
+	padding-left	: 15px ;
+	padding-right	: 15px ;
+	margin-left		: auto ;
+	margin-right	: auto ;
+	vertical-align	: top ;
+}
+
+.program-table-line
+{
+	vertical-align	: top ;
+}
+
+.program-table-jump
+{
+	border			: solid ;
+	border-width	: 1px ;
+	border-color	: black ;
+}
+
+.small
+{
+	font-size		: xx-small ;
+}
+
+h1
+{
+	color			: navy ;
+}

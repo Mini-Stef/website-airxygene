@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>VR2 - D&eacute;monstration d'int&eacute;grit&eacute;</title>
+
+		<script src="Scripts/Figure.js" type="text/javascript"></script>
+		<script src="Scripts/Jump.js" type="text/javascript"></script>
+		<script src="Scripts/Discipline.js" type="text/javascript"></script>
+		<script src="Scripts/DisciplineList.js" type="text/javascript"></script>
+		<script src="Scripts/Pool.js" type="text/javascript"></script>
+		<script src="Scripts/PoolVC2.js" type="text/javascript"></script>
+		<script src="Scripts/Program.js" type="text/javascript"></script>
+		<script src="Scripts/CompetitionSet.js" type="text/javascript"></script>
+		<script src="Scripts/Competition.js" type="text/javascript"></script>
+		<script src="Scripts/CompetitionList.js" type="text/javascript"></script>
+		<script src="Scripts/ConfigureDisciplines.js" type="text/javascript"></script>
+
+		<script src="DemoScripts/Model/FigureRecorder.js" type="text/javascript"></script>
+		<script src="DemoScripts/Model/TransitionRecorder.js" type="text/javascript"></script>
+		<script src="DemoScripts/Model/Analyser.js" type="text/javascript"></script>
+		<script src="DemoScripts/Controller/ArrayDrawer.js" type="text/javascript"></script>
+	</head>
+	
+	<body>
+		<script>
+			discipline		= globalDisciplineList.getDisciplineWithName("VR4") ;
+			analyser		= new Analyser(discipline) ;
+					
+			competition = globalCompetitionList.getCompetition("VR4",0) ;
+			aProgram = competition.pickUpProgram(10000) ;
+			imax	= aProgram.getNbrJumps() ;
+			for (i=0 ; i<imax ; i++)
+			{
+				jump = aProgram.getJumpAtIndex(i) ;
+				
+				analyser.analyseJump(jump) ;
+			}
+			
+			document.write("<h1>direct</h1>") ;
+			str = arrayStringFromFigureRecorder(analyser.figureRecorder) ;
+			document.write(str) ;
+			
+			nbrFigures	= discipline.getNbrFigures() ;
+			for (figureIndex=0 ; figureIndex<nbrFigures ; figureIndex++)
+			{
+				var code	= discipline.getCodeAtIndex(figureIndex) ;
+				
+				document.write("<h1>From " + code + " to</h1>") ;
+				str = arrayStringFromFigureRecorder(analyser.transitionRecorder.transitionCounters[code]) ;
+				document.write(str) ;
+			}
+		</script>
+	</body>
+</html>

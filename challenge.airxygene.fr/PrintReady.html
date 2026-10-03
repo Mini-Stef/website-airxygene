@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>VR2 - Construisez vos comp&eacute;titions</title>
+
+		<link rel="stylesheet" type="text/css" href="CSS/PrintReady.css" />
+
+		<script src="Scripts/Figure.js" type="text/javascript"></script>
+		<script src="Scripts/Jump.js" type="text/javascript"></script>
+		<script src="Scripts/Discipline.js" type="text/javascript"></script>
+		<script src="Scripts/DisciplineList.js" type="text/javascript"></script>
+		<script src="Scripts/Pool.js" type="text/javascript"></script>
+		<script src="Scripts/PoolVC2.js" type="text/javascript"></script>
+		<script src="Scripts/Program.js" type="text/javascript"></script>
+		<script src="Scripts/CompetitionSet.js" type="text/javascript"></script>
+		<script src="Scripts/Competition.js" type="text/javascript"></script>
+		<script src="Scripts/CompetitionList.js" type="text/javascript"></script>
+		
+		<script src="Scripts/ConfigureDisciplines.js" type="text/javascript"></script>
+		
+		<script src="Scripts/CookieLib.js" type="text/javascript"></script>
+		<script src="Scripts/AnimationLib.js" type="text/javascript"></script>
+		
+		<script src="Scripts/Animations.js" type="text/javascript"></script>
+		
+		<script src="Scripts/FigurePrinter.js" type="text/javascript"></script>
+		<script src="Scripts/ProgramPrinter.js" type="text/javascript"></script>
+		
+		<script src="Scripts/URLLib.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<h1 id="header1">  headerString </h1>
+		
+		<p class="small">
+			<br />
+			Imprim&eacute; gr&acirc;ce &agrave; <a href="http://challenge.airxygene.fr">http://challenge.airxygene.fr</a>
+			<br />
+		</p>
+		<p class="small">
+			EasySkydiveLog - The skydive logbook for iPhone - Available from the App Store.
+		</p>
+
+		<script type="text/javascript">
+			var urlVars = parseURLVariables() ;
+			
+			var header			= document.getElementById("header1") ;
+			header.innerHTML	= decodeURI( urlVars["header"] || "" ) ;
+			
+			var nbr				= ( urlVars["nbr"] || 0 ) ;
+
+			var program			= new program() ;
+
+			for (var n=0 ; n<nbr ; n++)
+			{
+				var type		= urlVars["type" + (n+1)] ;
+				var jumpString	= urlVars["jump" + (n+1)] ;
+
+				var discipline	= globalDisciplineList.getDisciplineWithName(type) ;
+				var jump		= new jumpOfThisDiscipline(discipline) ;
+				jump.setString(jumpString) ;
+				
+				program.appendJump(jump) ;
+			}
+			
+			document.write(programToString(program)) ;
+		</script>
+
+	</body>
+</html>

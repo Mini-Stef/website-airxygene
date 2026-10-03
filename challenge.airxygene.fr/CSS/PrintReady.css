@@ -1,0 +1,65 @@
+*
+{
+	text-align		: center ;
+	margin-left		: auto ;
+	margin-right	: auto ;
+}
+
+body
+{
+	background-color: white ;
+	font-family		: Trebuchet MS, Arial, Verdana, sans-serif ;
+}
+
+.page-breaker
+{
+	max-width		: 19cm ;
+	max-height		: 28cm ;
+	overflow		: hidden ;
+	page-break-after:always ;
+}
+
+.program-table
+{	
+	padding-left	: 15px ;
+	padding-right	: 15px ;
+	margin-left		: auto ;
+	margin-right	: auto ;
+
+	vertical-align	: top ;
+}
+
+.program-table-line
+{
+	vertical-align	: top ;
+}
+
+.program-table-jump
+{
+	padding-left		: 30px ;
+	padding-right		: 30px ;
+}
+
+.program-image
+{
+	max-width		: 92px ;
+}
+
+.program-set-name
+{
+	font-size		: 12px ;
+}
+
+.small
+{
+	font-size		: xx-small ;
+	margin-top		: 0px ;
+}
+
+h1
+{
+	font-size		: 20px ;
+	color			: navy ;
+	margin-top		: 0px ;
+	margin-bottom	: 0px ;
+}

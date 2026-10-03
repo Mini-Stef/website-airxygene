@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Aide de VR2</title>
+		
+		<link rel="stylesheet" type="text/css" href="../CSS/Help.css" />
+	</head>
+	<body>
+		<h1>Bienvenue</h1>
+		<p>
+			Ce site vous permet de cr&eacute;er des programmes de saut de diff&eacute;rentes fa&ccedil;ons&nbsp;:
+			<ul>
+				<li>Automatiquement, et selon les r&egrave;gles des diff&eacute;rentes comp&eacute;titions (r&egrave;gles disponibles sur le site de la FFP). Vous pouvez choisir parmi diff&eacute;rentes disciplines (VR3, VR4, VR8, VC2, VC4), et pour certaines de ces disciplines parmi diff&eacute;rentes r&egrave;gles (N1, N2 par exemple), ou th&egrave;mes d'entra&icirc;nement.</li>
+				<li>Manuellement, vous avez alors la possibilit&eacute; d'inclure plusieurs disciplines dans un programme de saut, et une totale libert&eacute; pour choisir les figures.</li>
+			</ul>
+		</p>
+		<h1>La zone de contr&ocirc;le</h1>
+		<p>
+			En haut &agrave; gauche de la fen&ecirc;tre, se trouvent trois boutons.<br />
+			<ul>
+				<li>Le bouton <input type="button" id="show-hide-button" value="&lt;&lt;" /> (ou <input type="button" id="show-hide-button" value="&gt;&gt;" />) permet de faire  dispara&icirc;tre (ou appara&icirc;tre) les autres zones, pour ne laisser appara&icirc;tre que la zone de pr&eacute;sentation.</li>
+				<li>Le bouton <input type="button" value="Aide" /> permet de faire appara&icirc;tre et dispara&icirc;tre l'aide en ligne.</li>
+				<li>Le bouton <input type="button" value="Options" /> fait appara&icirc;tre une fen&ecirc;tre permettant de g&eacute;rer la pr&eacute;sentation des sauts.
+				Les options de pr&eacute;sentation des sauts sont les suivantes&nbsp:
+				<ul>
+					<li><b>Afficher les noms manches</b> - lorsque cette option est s&eacute;lectionn&eacute;e, le texte "Manche X" appara&icirc;t au dessus de chaque manche.</li>
+					<li><b>Afficher les codes des manches</b> - lorsque cette option est s&eacute;lectionn&eacute;e, les codes des figures apparaissent au dessus de chaque manche.</li>
+					<li><b>Afficher les points des sauts</b> - lorsque cette option est s&eacute;lectionn&eacute;e, les points cumul&eacute;s correspondant &agrave; chaque figure sont affich&eacute;s &agrave; c&ocirc;t&eacute; des figures.</li>
+					<li><b>Codes le couleurs</b> - permet d'afficher les figures avec les couleurs des &eacute;quipiers (VR4 seulement pour l'instant).</li>
+					<li><b>Afficher la figure de sortie</b> - lorsque cette option est s&eacute;lectionn&eacute;e, la figure dont le code peut &ecirc;tre saisi dans le fen&ecirc;tre est affich&eacute; en d&eacute;but de chaque saut.</li>
+					<li>Le nombre de sauts affich&eacute;s par page peut &ecirc;tre modifi&eacute;.</li>
+				</ul>
+				D&egrave;s qu'une option est modifi&eacute;e, la comp&eacute;tition est imm&eacute;diatement r&eacute;affich&eacute;e.</li>
+			</ul>
+		</p>
+		<h1>
+			La zone de construction
+		</h1>
+		<h2>
+			La zone de structure
+		</h2>
+		<p>
+			Cette zone permet de contruire le saut. Elle est compos&eacute;e de plusieurs bo&icirc;tes.<br />
+			La premi&egrave;re bo&icirc;te permet de choisir le type de tirage (manuel ou automatique).<br /><br />
+			En cas de <b>tirage automatique</b> la seconde bo&icirc;te permet de choisir la <i>discipline</i> de la comp&eacute;tition, le <i>nombre de manches</i> dans la comp&eacute;tition, ainsi que les <i>r&egrave;gles</i> du tirage (N1 ou N2 par exemple, mais &eacute;galement quelques th&egrave;mes d'entra&icirc;nement).
+			En appuyant sur le bouton <input type="button" value="Go !" />, le tirage est effectu&eacute; et s'affiche.<br /><br />
+			En cas de <b>tirage manuel</b> la seconde bo&icirc;te permet de choisir la <i>discipline</i> des sauts de la comp&eacute;tition, et d'entrer le <i>programme</i> des sauts. Le programme des sauts doit &ecirc;tre compos&eacute; des codes des figures s&eacute;par&eacute;s par des tirets '-', chaque saut &eacute;tant s&eacute;par&eacute; par un point-virgule.
+			Par exemple&nbsp;: "A-1-B;4-6-G". Le saut s'affiche au fur et &agrave mesure de la frappe du programme.<br />
+			Il est &eacute;galement possible de construire le saut gr&acirc;ce &agrave; la zone d'aide.<br />
+			Les boutons <input type="button" value="+" /> et <input type="button" value="-" /> permettent respectivement d'ajouter ou de retirer des bo&icirc;tes permettant de rajouter des sauts d'autres disciplines au programme.<br />
+		</p>
+		<h2>
+			La zone d'aide
+		</h2>
+		<p>
+			Cette zone appara&icirc;t sur la droite de la fen&ecirc;tre lors de la construction manuelle d'un programme de saut. Elle pr&eacute;sente les figures disponibles pour la discipline du saut en construction.<br />
+Si vous cliquez sur l'une des figures pr&eacute;sent&eacute;es, cette derni&egrave;re sera ajout&eacute;e &agrave; la fin du saut en cours de construction. Le bouton <input type="button" value=";" /> permet de terminer le saut en cours&nbsp;; les figures seront alors ajout&eacute;es au saut suivant.<br />
+Le menu en haut de cette zone permet de faire appara&icirc;tre diff&eacute;rents groupes de figures pour une s&eacute;lection plus facile.<br />
+Le bouton <input type="button" value="Prog" /> permet d'imprimer dans une fen&ecirc;tre s&eacute;par&eacute;e l'ensemble des figures disponibles pour la discipline s&eacute;lectionn&eacute;e.
+		</p>
+		<h1>
+			La zone de pr&eacute;sentation
+		</h1>
+		<p>
+			C'est dans cette zone que le programme de saut est affich&eacute;. Soit d&egrave;s que vous cliquez sur le bouton <input type="button" value="Go !" /> lors d'une g&eacute;n&eacute;ration automatique, soit au fur et &agrave; mesure que vous construisez manuellement votre saut.<br />
+Les sauts sont affich&eacute;s selon le choix d'options que vous pouvez effectuer en cliquant sur le bouton <input type="button" value="Options" />.<br />
+Si vous cliquez sur l'une des figures pr&eacute;sent&eacute;es, celle-ci se retournera pour &ecirc;tre affich&eacute;e "en miroir".
+		</p>
+		<h1>
+			La derni&egrave;re zone
+		</h1>
+		<p>
+			En haut &agrave; droite, divers boutons sont visibles.<br />
+			<ul>
+				<li>Le bouton <input type="button" value="Imprimer" /> fait appara&icirc;tre une nouvelle fen&ecirc;tre avec le programme affich&eacute; de mani&egrave;re &agrave; &ecirc;tre pr&ecirc;t pour l'impression. Auparavant, il vous sera demand&eacute; si vous voulez entrer une phrase d'ent&ecirc;te.</li>
+				<li>Le bouton <input type="button" value="T&eacute;l&eacute;charger" /> vous permet de t&eacute;l&eacute;charger ce programme pour l'utiliser sans connexion Internet.</li>
+			</ul>
+		</p>
+		<h1>
+			Liens
+		</h1>
+		<p>
+			La marque de wingsuit <a href="http://www.bird-land.ch" target="_blank">Birdman</a>, organisateur du Birdman Challenge.
+		</p>
+		<h1>
+			Licence
+		</h1>
+		<p>
+			Le logiciel "VR2" (aussi appelé "Challenge AirXyg&egrave;ne") peut &ecirc;tre utilis&eacute; librement sur Internet.<br />
+			Sa version off-line peut &ecirc;tre utilis&eacute; librement &agrave; condition que le nom de l'auteur "St&eacute;phane Millet" ou "Stef Millet" ou "AirXygène" apparaisse sur toutes les pages imprimées par le programme. En aucun cas le code source ne devra &ecirc;tre modifi&eacute;.<br /><br />
+			L'auteur peut changer la licence d'utilisation &agrave; tout moment.
+		</p>
+		<h1>
+			Remerciements
+		</h1>
+		<p>
+			Merci &agrave; tous ceux qui m'ont aid&eacute; &agrave; r&eacute;aliser ce programme, par leurs conseils, par leurs essais et parfois m&ecirc;me par leurs moqueries. Entres autres (et pardon &agrave; ceux que j'oublie) Yves Letourneur, Manu Sarrazin, Freddy Goguet, Guillaume Dubois, etc...<br /><br />
+			Le jeu de figures original de VR4 et VR8, retravaillé pour ce programme est l'oeuvre de Ted Wagner.<br /><br />
+			Merci d'avoir lu l'aide jusqu'au bout, parce que c'est pas marrant &agrave; &eacute;crire...
+		</p>
+		<p align="right" width="100%">
+			<i>Stef Millet</i>
+		</p>
+	</body>
+</html>

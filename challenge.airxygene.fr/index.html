@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>VR2 - Construisez vos comp&eacute;titions</title>
+
+		<link rel="stylesheet" type="text/css" href="CSS/GeneralStyles.css" />
+		<link rel="stylesheet" type="text/css" href="CSS/VR2.css" />
+
+		<script src="Scripts/Figure.js" type="text/javascript"></script>
+		<script src="Scripts/Jump.js" type="text/javascript"></script>
+		<script src="Scripts/Discipline.js" type="text/javascript"></script>
+		<script src="Scripts/DisciplineList.js" type="text/javascript"></script>
+		<script src="Scripts/Pool.js" type="text/javascript"></script>
+		<script src="Scripts/PoolVC2.js" type="text/javascript"></script>
+		<script src="Scripts/Program.js" type="text/javascript"></script>
+		<script src="Scripts/CompetitionSet.js" type="text/javascript"></script>
+		<script src="Scripts/Competition.js" type="text/javascript"></script>
+		<script src="Scripts/CompetitionList.js" type="text/javascript"></script>
+		
+		<script src="Scripts/ConfigureDisciplines.js" type="text/javascript"></script>
+		
+		<script src="Scripts/CookieLib.js" type="text/javascript"></script>
+		<script src="Scripts/AnimationLib.js" type="text/javascript"></script>
+		
+		<script src="Scripts/Animations.js" type="text/javascript"></script>
+		
+		<script src="Scripts/FigurePrinter.js" type="text/javascript"></script>
+		<script src="Scripts/ProgramPrinter.js" type="text/javascript"></script>
+		
+		<script src="Scripts/GUILib.js" type="text/javascript"></script>
+		<script src="Scripts/URLLib.js" type="text/javascript"></script>
+		<script src="Scripts/ZoneManager.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5888729-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	</head>
+
+	<body>
+		<!--
+			TO DO
+				* ajustement automatique de la hauteur des des zones gauche et droite
+				* ajouter des disciplines - FAIT reste VR4 Indoor et VRV4, demander le nom des figures de VC2
+				* ajouter des compétitions - FAIT
+				* faire l'aide - FAIT
+				* dessiner avec SVG - FAIT mais j'ai pas les sources
+				* clic pour mirroir - FAIT
+				* options de dessin
+					+ points des juges	- FAIT
+					+ thèmes avec couleurs - Fait mais ajouter plus de figures de couleur
+				* gestion du fond d'ecran
+				* impression - FAIT
+		-->
+		
+		
+		<!--
+			The site is made of several zones :
+				* the build-zone : on the left side - where building the jumps takes place, and where some control buttons are
+					such as option and help button
+				* the presentation-zone : on the right side - where figures are presented when a jump is built manually, and where the
+					print button is
+				* the background-zone : shows the background image
+				* the show-zone : shows the jump being built
+			
+			In addition, two dialogs are used :
+				* the option-dialog : to manage the jump drawing options
+				* the help-dialog : to show the help text
+		-->
+		<div class="fixed-control-zone" id="build-zone">
+			<!--
+				The build-zone is where the building of the jump will take place
+				This zone will propose all buttons and menus to allow building the jumps. This includes
+					+ a block that allows to show or hide the other blocks, and buttons for menus
+					+ a block to choose between automatic and manual jump pickup
+					+ a block that allows an automatic pickup of the jumps accoring to various rules
+					+ a block that allows a manual pickup of the jumps
+			-->
+			<div id="build-options-div">
+				<!--
+					This block allows to set various options
+						+ visibility or not of the other blocks
+						+ call option dialog for drawing the jump
+						+ call help dialog
+				-->
+				<input type="button" id="show-hide-button" value="&lt;&lt;" onclick="theZoneManager.showHideCallback('show-hide-button')" />
+				<input type="button" value="Options" onclick="theZoneManager.toggleHelp('option-zone')" />
+				<input type="button" value="Aide" onclick="theZoneManager.toggleHelp('help-zone')" />
+			</div>
+		
+			<div class="invisible-block" id="auto-manual-choice-div">
+				<!--
+					This block allows to choose between manual and automatic pickup
+				-->
+				<div class="visible-inner-block">
+					1&nbsp;-&nbsp;Tirage automatique ou manuel&nbsp;?<br />
+					<select id="auto-manual-choise-menu" onchange="theZoneManager.autoManualChoiseMenuCallback('auto-manual-choise-menu')">
+						<option value="automatic" selected="selected">Tirage automatique</option>
+						<option value="manual">Tirage manuel</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="invisible-block" id="auto-pickup-div">
+				<!--
+					This block allows to specify the automatic pickup
+						+ choose the discipline
+						+ choose the number of jumps
+						+ choose the rules
+				-->
+				<div class="visible-inner-block">
+					2&nbsp;-&nbsp;Choisir la discipline<br />
+					<select id="auto-pickup-disc-menu" onchange="theZoneManager.changeCompetitionMenuBasedOnSelectedDiscipline('auto-pickup-disc-menu','auto-pickup-compet-menu') ;">
+						<option />
+					</select><br />
+					le nombre de sauts<br />
+					<select id="auto-pickup-nbr-menu">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8" selected="selected">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select><br />
+					et les r&egrave;gles<br />
+					<select id="auto-pickup-compet-menu"></select><br />
+					<input id="auto-pickup-go" type="button" value="Go !" onclick="theZoneManager.autoPickupGoCallback('auto-pickup-disc-menu','auto-pickup-nbr-menu','auto-pickup-compet-menu')">
+					</input>
+				</div>
+			</div>
+
+			<div class="invisible-block" id="manual-pickup-div">
+				<!--
+					This block allows to specify the automatic pickup
+						+ choose the discipline
+						+ enter the jump codes
+						+ allow to add jumps of other disciplines
+				-->
+				<div class="visible-inner-block" id="manual-pickup-div-0">
+					2&nbsp;-&nbsp;Choisir la discipline
+					<br />
+					<select id="manual-pickup-disc-menu-0" onchange="theZoneManager.menuToPictures('manual-pickup-disc-menu-0','presentation-filter-menu','manual-pickup-edit-0','presentation-picture-zone-div');"></select>
+					<br />
+					et entrez les sauts
+					<br />
+					<input class="full-width" id="manual-pickup-edit-0" type="text" value="" onkeyup="theZoneManager.buildAndShowManualJump();" onfocus="theZoneManager.menuToPictures('manual-pickup-disc-menu-0','presentation-filter-menu','manual-pickup-edit-0','presentation-picture-zone-div');" />
+					<input type="button" value="+" onclick="addAManualDisc();" />
+				</div>
+			</div>
+		</div>
+
+		<div class="fixed-control-zone" id="presentation-zone">
+			<!--
+				The presentation-zone contains
+					+ a block to print the jump
+					+ a block to show the possible figures during manual build
+			-->
+			<div id="print-zone-div">
+				<!--
+					This block allows to print the current jump
+				-->
+				<form method="link" action="http://challenge.airxygene.fr/Download/VR2.zip">
+					<input type="button" value="Imprimer" onclick="theZoneManager.toggleHelp('print-info-zone')" />
+					<input type="submit" value="T&eacute;l&eacute;charger" />
+				</form>
+			</div>
+
+			<div class="invisible-block" id="presentation-zone-div">
+				<!--
+					This block will show the figures that are possible for the currently build jump.
+					There is also a filtering menu.
+				-->
+				<div class="visible-inner-block" id="presentation-discipline-menu-div">
+					<select id="presentation-filter-menu" onchange="theZoneManager.filterToPictures('presentation-filter-menu','presentation-picture-zone-div');">
+						<option value=".*">Toutes les figures</option>
+						<option value="[A-Z]">Libres</option>
+						<option value="[1-9][0-9]*">Blocks</option>
+					</select>
+					<input type="button" value=";" onclick="theZoneManager.addJumpSeparator()" />
+					<input type="button" value="Prog" onclick="theZoneManager.printCurrentDisciplineProgram()" />
+					<div id="presentation-picture-zone-div">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="background-zone" id="background-zone">
+			<img id="background-image" src="Images/Backgrounds/Logo-8cm.png" />
+		</div>
+
+		<div class="show-zone" id="show-zone">
+		</div>
+
+		<div class="fixed-dialog" id="option-zone">
+			<!--
+				This is the option dialog, a zone where to tune how jumps are presented
+			-->
+			<div class="visible-inner-block" id="option-zone-options-div">
+				<table>
+					<tr>
+						<td><input id="option-print-pictures" type="checkbox" value="print-set-name" checked="checked" onchange="thePrinterPreferences.setPrintPictures('option-print-pictures')" /></td>
+						<td>Afficher les images.</td>
+					</tr>
+					<tr>
+						<td><input id="option-print-set-name" type="checkbox" value="print-set-name" checked="checked" onchange="thePrinterPreferences.setPrintSetName('option-print-set-name')" /></td>
+						<td>Afficher les noms des manches.</td>
+					</tr>
+					<tr>
+						<td><input id="option-print-program" type="checkbox" value="print-program" checked="checked" onchange="thePrinterPreferences.setPrintProgram('option-print-program')" /></td>
+						<td>Afficher les codes des manches.</td>
+					</tr>
+					<tr>
+						<td><input id="option-print-jump-points" type="checkbox" value="print-jump-points" onchange="thePrinterPreferences.setPrintJumpPoints('option-print-jump-points')" /></td>
+						<td>Afficher les points des sauts.</td>
+					</tr>
+					<tr>
+						<td><input id="option-print-colors" type="checkbox" value="print-colors" onchange="thePrinterPreferences.setPrintColors('option-print-colors')" /></td>
+						<td>Codes de couleur (VR4 seulement).</td>
+					</tr>
+					<tr>
+						<td><input id="option-print-exit-figure" type="checkbox" value="print-exit-figure" onchange="thePrinterPreferences.setPrintExitFigure('option-print-exit-figure')" /></td>
+						<td>Afficher la figure de sortie&nbsp;:&nbsp;<input id="option-exit-figure-code" type="text" value="M" size="2" maxlength="1" onkeyup="thePrinterPreferences.setExitFigureCode('option-exit-figure-code')" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Afficher <input id="option-nbr-set-wide" type="text" value="4" size="2" maxlength="1" onkeyup="thePrinterPreferences.setNbrWide('option-nbr-set-wide')" /> manches par page.</td>
+					</tr>
+				</table>
+			</div>
+			<div class="fixed-dialog-close-button" id="option-zone-close-button-div">
+				<input type="button" value="Fermer les options" onclick="theZoneManager.closeHelp('option-zone')" />
+			</div>
+		</div>
+
+		<div class="fixed-dialog" id="help-zone">
+			<!--
+				This is the help dialog, a text that will explain how to use the application
+			-->
+			<div class="visible-inner-block" id="help-zone-text-box-div">
+				<object class="full-width-height" data="Pages/Help.html" type="text/html">
+				</object>
+			</div>
+			<div class="fixed-dialog-close-button" id="help-zone-close-button-div">
+				<input type="button" value="Fermer l'aide" onclick="theZoneManager.closeHelp('help-zone')" />
+			</div>
+		</div>
+		
+		<div class="fixed-dialog" id="pub-zone">
+			<!--
+				This is the pub dialog, to show advertising
+			-->
+			<div class="visible-inner-block" id="pub-zone-text-box-div">
+				<div class="fixed-dialog-close-button" id="pub-zone-close-button-div">
+					<input type="button" value="Fermer" onclick="theZoneManager.closeHelp('pub-zone')" />
+				</div>
+				<object class="full-width-height" data="Pages/Pub.html" type="text/html">
+				</object>
+			</div>
+		</div>
+		
+		<div class="fixed-dialog" id="print-info-zone">
+			<!--
+				This is a dialog to enter the header string for printing
+			-->
+			<div class="visible-inner-block" id="print-info-zone-div">
+				Entrez une phrase d'ent&ecirc;te<br />
+				<input id="print-info-header-text" size="40"/><br />
+				<input type="button" value="Imprimer" onclick="theZoneManager.closeHelp('print-info-zone');theZoneManager.prettyPrintInThisURLAndDiv('PrintReady.html','print-ready-show-div','print-info-header-text')" />
+			</div>
+			<div class="fixed-dialog-close-button" id="print-info-zone-close-button-div">
+				<input type="button" value="Annuler" onclick="theZoneManager.closeHelp('print-info-zone')" />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			//	Create the discipline menu of the automatic section
+			disciplines = globalDisciplineList.getListOfDisciplineNames() ;
+			populateSelectElementWithOptionNames("auto-pickup-disc-menu",disciplines,disciplines) ;
+			//	Update the competition menu of the automatic section
+			theZoneManager.changeCompetitionMenuBasedOnSelectedDiscipline("auto-pickup-disc-menu","auto-pickup-compet-menu") ;
+
+			//	Create the discipline menu of the manual section
+			populateSelectElementWithOptionNames("manual-pickup-disc-menu-0",disciplines,disciplines) ;
+
+			//	Population the presentation section
+			theZoneManager.menuToPictures("manual-pickup-disc-menu-0","presentation-filter-menu","manual-pickup-edit-0","presentation-picture-zone-div") ;
+
+			//	Set the cookie values in the option dialog
+			anInput = document.getElementById("option-print-pictures") ;
+			anInput.checked	= thePrinterPreferences.getPrintPictures() ;
+			anInput = document.getElementById("option-print-set-name") ;
+			anInput.checked	= thePrinterPreferences.getPrintSetName() ;
+			anInput = document.getElementById("option-print-program") ;
+			anInput.checked	= thePrinterPreferences.getPrintProgram() ;
+			anInput = document.getElementById("option-print-jump-points") ;
+			anInput.checked	= thePrinterPreferences.getPrintJumpPoints() ;
+			anInput = document.getElementById("option-print-colors") ;
+			anInput.checked	= thePrinterPreferences.getPrintColors() ;
+			anInput = document.getElementById("option-print-exit-figure") ;
+			anInput.checked	= thePrinterPreferences.getPrintExitFigure() ;
+			anInput = document.getElementById("option-exit-figure-code") ;
+			anInput.value	= thePrinterPreferences.getExitFigureCode() ;
+			anInput = document.getElementById("option-nbr-set-wide") ;
+			anInput.value	= thePrinterPreferences.getNbrWide() ;
+
+			//	Show default configuration (automatic pickup)
+			theZoneManager.initialiseState("build-zone",
+												"build-options-div","auto-manual-choice-div","auto-pickup-div","manual-pickup-div",
+											"presentation-zone",
+												"presentation-zone-div",
+											"show-zone") ;
+
+			//	Intelligent callbacks
+			function addAManualDisc()
+			{
+				nbr 	= theZoneManager.getNbrDiscInManual() ;
+				id		= "manual-pickup-div-" + nbr ;
+				menuid	= "manual-pickup-disc-menu-" + nbr ;
+				editid	= "manual-pickup-edit-" + nbr ;
+				htmlString = "Choisir la discipline<br />" +
+								"<select id=\"" + menuid + "\" onchange=\"theZoneManager.menuToPictures('" + menuid + "','presentation-filter-menu','" + editid + "','presentation-picture-zone-div');\"></select><br />" +
+								"et entrez les sauts<br />" +
+								"<input class=\"full-width\" id=\"manual-pickup-edit-" + nbr + "\" type=\"text\" value=\"\" onkeyup=\"theZoneManager.buildAndShowManualJump()\" onfocus=\"theZoneManager.menuToPictures('" + menuid + "','presentation-filter-menu','" + editid + "','presentation-picture-zone-div');\"/>" + 
+								"<input type=\"button\" value=\"-\" onclick=\"theZoneManager.removeDiscInManualJump(\'" + id + "\')\" />"  ;
+
+				theZoneManager.addDiscInManualJump('visible-inner-block',id,htmlString) ;
+				populateSelectElementWithOptionNames("manual-pickup-disc-menu-" + nbr,disciplines,disciplines) ;
+			}
+			
+			
+			//	Parse URL and show a jump if needed
+			nvPairs = parseURLVariables() ;
+			if (nvPairs["type"])
+			{
+				theZoneManager.buildAndShowURLJump(nvPairs["type"],nvPairs["jump"]) ;
+			}
+		</script>
+	</body>
+</html>
