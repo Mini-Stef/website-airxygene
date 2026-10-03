@@ -123,7 +123,7 @@ def page(lang, kind):
     cards = "".join(
         f'<a class="card" href="#{a["slug"]}">'
         + (f'<img src="{url(a["icon"], depth)}" alt="" width="96" height="96">' if a["icon"] else '<span class="icon"></span>')
-        + f'<span>{escape(a["name"])}</span></a>' for a in apps)
+        + f'<span>{escape(a["name"])}</span></a>' for a in apps if a["icon"])  # sans icône : pas dans le carrousel
     parts.append(f'<nav class="carousel" aria-label="Apps">{cards}</nav>')
     for a in apps:
         subj = escape(t["subject"].format(app=a["name"]), quote=True)
