@@ -1,0 +1,6 @@
+# Redirections (Apache). Les anciennes URLs du site WordPress vers les nouvelles pages.
+Redirect 301 /en/data-privacy-policy/ https://airxygene.fr/en/privacy.html
+Redirect 301 /politique-de-confidentialite-des-donnees/ https://airxygene.fr/privacy.html
+
+# Toute URL inexistante (404) est renvoyée vers l'accueil (redirection 302).
+ErrorDocument 404 https://www.airxygene.fr/

@@ -4,12 +4,17 @@
   "platforms": [
     "macOS"
   ],
-  "store": null,
-  "icon": "icon/AppIcon-iOS-Default-1024@1x.png",
-  "shots": [],
+  "store": "https://apps.apple.com/app/id6816365023",
+  "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7d/51/5d/7d515d2b-da0d-e2de-be6b-5d37b332cea2/AppIcon-0-0-85-220-0-6-0-2x.png/512x512bb.png",
+  "shots": [
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/86/c1/08/86c10899-cf1b-22f9-a3f7-05a3556aa2dc/Capture_d_U2019e_U0301cran_2026-10-04_a_U0300_16.12.52.png/900x900bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ed/06/94/ed069452-c12b-78be-b2db-7bbe56a6af7c/Capture_d_U2019e_U0301cran_2026-10-04_a_U0300_16.26.14.png/900x900bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/30/05/a0/3005a044-000b-9eb8-2cfd-761535be1dfa/Capture_d_U2019e_U0301cran_2026-10-04_a_U0300_16.28.56.png/900x900bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/79/ab/20/79ab2009-1b00-ad19-6581-4a3790c4b668/Capture_d_U2019e_U0301cran_2026-10-04_a_U0300_16.25.23.png/900x900bb.jpg"
+  ],
   "description": {
-    "fr": "Six morceaux de carte déchirée. Trois capitaines rivaux. Une idole en or. Commercez, combattez et creusez sur une mer vivante, et atteignez le trésor avant les autres.",
-    "en": "Six torn pieces of a map. Three rival captains. One golden idol. Trade, fight and dig your way across a living sea, and reach the treasure before anyone else does.",
-    "es": "Seis trozos de un mapa roto. Tres capitanes rivales. Un ídolo de oro. Comercia, combate y cava por un mar vivo, y llega al tesoro antes que nadie."
+    "fr": "Pirats Treasure Race est un jeu de commerce, de combat naval et de ruse sur une mer vivante en 3D. Achetez bas, vendez haut, acceptez une mission, signez une licence, concluez un marché ou ouvrez le feu. Il y a plus d'une façon de réunir les morceaux, et une seule règle : celui qui rassemble les six le premier gagne.",
+    "en": "Pirats Treasure Race is a game of trade, naval combat and cunning on a living 3D sea. Buy low, sell high, take a job, sign a licence, strike a deal or open fire. There is more than one way to collect the pieces, and the only rule is that whoever gathers all six first, wins.",
+    "es": "Pirats Treasure Race es un juego de comercio, combate naval y astucia en un mar vivo en 3D. Compra barato, vende caro, acepta un encargo, firma una licencia, cierra un trato o abre fuego. Hay más de una manera de reunir los trozos, y una sola regla: gana quien junte los seis primero."
   }
 }
